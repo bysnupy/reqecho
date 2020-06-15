@@ -27,8 +27,8 @@ def list_header():
         return test_post
     else:
         try:
-            resp = flask.make_response("OK")
+            resp = make_response("OK")
             resp.set_cookie("appside_cookie", "hello")
-            return 'resp
+            return resp
         except:
             return test_post
