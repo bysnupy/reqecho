@@ -1,9 +1,16 @@
 from reqecho import echo
 from flask import *
 import time
+import os
+
+context_path = os.environ['CONTEXT_PATH']
+if not context_path:
+    context_path = '/'
+
 
 @echo.route(context_path, methods=['POST','GET'])
 def list_header():
+    print("context path:" + context_path)
     timeout = time.time() + 20
     test_post = """
         <form action="/" method="POST">
