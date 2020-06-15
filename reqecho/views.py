@@ -3,10 +3,9 @@ from flask import *
 import time
 import os
 
-context_path = os.environ['CONTEXT_PATH']
-if not context_path:
-    context_path = '/'
-
+context_path = '/'
+if os.environ['CONTEXT_PATH']:
+    context_path = os.environ['CONTEXT_PATH']
 
 @echo.route(context_path, methods=['POST','GET'])
 def list_header():
@@ -28,6 +27,8 @@ def list_header():
         return test_post
     else:
         try:
-            return 'OK',200
+            resp = flask.make_response("OK")
+            resp.set_cookie("appside_cookie", "hello")
+            return 'resp
         except:
             return test_post
