@@ -4,8 +4,8 @@ import time
 import os
 
 context_path = '/'
-if os.environ['CONTEXT_PATH']:
-    context_path = os.environ['CONTEXT_PATH']
+if os.environ.get('CONTEXT_PATH'):
+    context_path = os.environ.get('CONTEXT_PATH')
 
 @echo.route(context_path, methods=['POST','GET'])
 def list_header():
