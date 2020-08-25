@@ -7,7 +7,7 @@ context_path = '/'
 if os.environ.get('CONTEXT_PATH'):
     context_path = os.environ.get('CONTEXT_PATH')
 
-@echo.route(context_path, methods=['POST','GET'])
+@echo.route(context_path)
 def list_header():
     print("context path:" + context_path)
     timeout = time.time() + 20
